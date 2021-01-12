@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record model="ir.module.category" id="categoria_gestion_flotas_accesos">
+        <field name="name">Permiso de acceso a gestión de flotas</field>
+        <field name="description">Permiso de acceso a gestión de flotas</field>
+        <field name="sequence">4</field>
+	</record>
+	
+
+    <record id="gestion_flotas_manager" model="res.groups">
+        <field name="category_id" ref="categoria_gestion_flotas_accesos"/>
+        <field name="name">Gestión de flotas acceso total</field>
+    </record>
+
+    <record id="gestion_flotas_user" model="res.groups">
+        <field name="category_id" ref="categoria_gestion_flotas_accesos"/>
+        <field name="name">Gestión de flotas usuario de lectura</field>
+    </record>
+
+
+</data>
+</odoo>

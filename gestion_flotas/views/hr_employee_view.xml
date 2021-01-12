@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+
+<record model="ir.ui.view" id="hr_employee_form_view">
+    <field name="name">hr.employee.form</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+    <field name="coach_id" position="after">
+        <field name="es_conductor"/>
+    </field>
+    <notebook position="inside">
+        <page string="Datos de Conductor" sequence="1000"  >
+        <separator string="Datos de licencia de conducir"/>
+        <group colspan="4">
+          <group cols="2"> 
+              <field name="numero_licencia"/>
+              <field name="fecha_emision"/>
+              <field name="tipo_licencia"/>
+              <field name="tipo_sangre"/>
+          </group>
+          <group cols="2"> 
+              
+          </group>
+         </group> 
+        </page> 
+	</notebook>
+  </field>
+</record>
+
+
+<record id="action_hr_employee_gsie" model="ir.actions.act_window">
+	<field name="name">Empleado</field>
+	<field name="res_model">hr.employee</field>
+  <field name="view_mode">tree,form</field>
+  <field name="domain">[('es_conductor', '=', True)]</field>
+</record>
+
+
+<menuitem id="gsie_empleado_menu_action" 
+		name="Conductores" 
+		sequence="5" 
+		parent="gsie_configuracion_conductor"
+		action="action_hr_employee_gsie"
+/>
+
+</data>
+</odoo>
+
+

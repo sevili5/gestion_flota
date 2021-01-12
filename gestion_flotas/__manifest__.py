@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "Gestión de Flotas",
+    "author": "Grupo SIE, Alejandro Rodriguez",
+    'summary': """ Modulo de Flota""",
+    'version': '0.1',
+    'depends': [
+        'base',
+        'stock',
+        'purchase',
+        "hr",
+    ],
+    'data': [
+        "security/groups.xml",
+        "security/ir.model.access.csv",
+        "views/menus.xml",
+        "views/fabricante_marca_view.xml",
+        "views/modelo_view.xml",
+        "views/tipo_combustible_view.xml",
+        "views/matricula_view.xml",
+        "views/ubicacion_view.xml",
+        "views/contratos_view.xml",
+        "views/odometro_view.xml",
+        "views/servicios_view.xml",
+        "views/hr_employee_view.xml",
+        "views/neumatico_view.xml",
+        "views/combustible_control_view.xml",
+        "views/vehiculo_view.xml",
+    ],
+    'application': True,
+}

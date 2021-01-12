@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_contratos_form_view" model="ir.ui.view">
+	<field name="name">gsie.contratos.form.view</field>
+	<field name="model">gsie.contratos</field>
+	<field name="arch" type="xml">
+	<form string="Contratos">
+		<sheet>
+		<separator style="color:#009C96;font-style:bold;" string="Información General"/>
+			<group>
+				<group string="Información del Contrato">
+					<field name="responsable_id"/>
+					<field name="proveedores_id" />
+					<field name="conductores_id" />
+				</group>
+				<group string="Información del Vehiculo">
+					<field name="modelo_id"/>
+					<field name="costo_activacion"/>
+				</group>
+				<group > 
+					<field name="fecha_factura"/>
+					<field name="fecha_inicio"/>
+					<field name="fecha_expiracion"/>
+				</group>
+			</group>
+				<group string="Servicios">
+                    <field name="servicios_id" nolabel="1" placeholder="Escribe una descripción del Neumatico"/>
+                </group>
+				<group string="Términos y condiciones">
+                    <field name="descripcion" nolabel="1" placeholder="Escribe cualquier información relevante del contrato"/>
+                </group>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_contratos_tree_view" model="ir.ui.view">
+	<field name="name">gsie.contratos.tree.view</field>
+	<field name="model">gsie.contratos</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_contratos" model="ir.actions.act_window">
+	<field name="name">Contratos</field>
+	<field name="res_model">gsie.contratos</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+
+	
+</odoo>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_vehiculo_form_view" model="ir.ui.view">
+	<field name="name">gsie.vehiculo.form.view</field>
+	<field name="model">gsie.vehiculo</field>
+	<field name="arch" type="xml">
+	<form string="Vehiculos">
+		<sheet>
+		 <div class="oe_button_box" name="button_box">
+            <button class="oe_stat_button"
+                icon="fa-bars"
+                type="action" name="%(action_gsie_matricula)d"
+                string="Históricos de matrículas">
+            </button> 
+        </div>
+		<separator style="color:#009C96;font-style:bold;" string="Registo de  Vehículo"/>
+		<field name="imagen_vehiculo" widget="image" class="oe_avatar"/>
+		<h2>
+			<field name="modelo_id" placeholder="Ej. Modelo"/>
+        </h2>
+		<h2>
+		<group>
+			<field name="name" placeholder="Ej.PAE32"/>		
+		</group>
+		</h2>
+			<group>
+				<group string="Vehículo">
+					<field name="lectura_odometro"/>
+					<field name="fecha_proxima_matricula"/>
+					<field name="ubicacion_id"/>
+				</group>
+				<group string="Datos Generales">
+					<field name="vin"/>
+					<field name="cil"/>
+					<field name="chassis"/>
+					<field name="n_serie"/>
+				</group>
+				<group string="Modelo">
+					<field name="color"/>
+					<field name="año"/>
+					<field name="n_asientos"/>
+					<field name="n_puertas"/>
+				</group>
+				<group string="Motor">
+					<field name="transmision"/>
+					<field name="tipo_combustible_id"/>
+					<field name="caballo_potencia"/>
+					<field name="caballo_potencia_fiscales"/>
+					<field name="potencia_motor"/>
+					<field name="placa_motor"/>
+				</group>
+				<group string="Compra">
+					<field name="odometro_adquisicion"/>
+					<field name="fecha_compra"/>
+					<field name="valor_compra"/>
+					<field name="valor_residual"/>
+					<field name="proveedor_id"/>
+				</group>				
+			</group>
+			<separator style="color:#009C96;font-style:bold;" string="Notas y observaciones acerca del vehículo"/>
+			<group>
+				<field name="descripcion" nolabel="1" placeholder="Notas y observaciones acerca del vehículo"/>
+			</group>
+			<notebook>
+       		<page string="Conductor">
+          	<field name="conductor_ids">
+            	<tree editable="conductor_id">
+            		<field name="conductor_id"/>
+					<field name="fecha_asignacion"/>
+             	 </tree>
+         	 </field>
+     		</page>
+    		</notebook>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_vehiculo_tree_view" model="ir.ui.view">
+	<field name="name">gsie.vehiculo.tree.view</field>
+	<field name="model">gsie.vehiculo</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="modelo_id"/>
+			<field name="name"/>
+			<field name="lectura_odometro"/>
+			<field name="transmision"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_vehiculo" model="ir.actions.act_window">
+	<field name="name">Vehículos</field>
+	<field name="res_model">gsie.vehiculo</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="gsie_vehiculo_menu" 
+		name="Vehículo" 
+		sequence="1" 
+		parent="gsie_vehiculo_principal"
+		action="action_gsie_vehiculo"/>
+	
+</odoo>

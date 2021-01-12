@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_matricula_form_view" model="ir.ui.view">
+	<field name="name">gsie.matricula.form.view</field>
+	<field name="model">gsie.matricula</field>
+	<field name="arch" type="xml">
+	<form string="Matricula">
+	<header>
+		<field name="state" widget="statusbar"/>
+	</header>
+		<sheet>
+		<separator style="color:#009C96;font-style:bold;" string="Registro de Matrícula Vehícular"/>
+			<group>
+				<group>
+					<field name="name" />
+					<field name="vehiculo_id" />
+				</group>
+				<group>
+					<field name="fecha_matricula" />
+					<field name="monto_pago"/>
+				</group>				
+			</group>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_matricula_tree_view" model="ir.ui.view">
+	<field name="name">gsie.matricula.tree.view</field>
+	<field name="model">gsie.matricula</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name" />
+			<field name="vehiculo_id"/>
+			<field name="fecha_matricula"/>
+			<field name="monto_pago"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_matricula" model="ir.actions.act_window">
+	<field name="name">Matrícula de Vehículo</field>
+	<field name="res_model">gsie.matricula</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="gsie_matricula_menu" 
+		name="Matrícula de Vehículo" 
+		sequence="3" 
+		parent="gsie_vehiculo_principal"
+		action="action_gsie_matricula"/>
+	
+</odoo>

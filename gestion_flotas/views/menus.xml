@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<menuitem id="gsie_vehiculos_menu_root" 
+		name="Flota" 
+		sequence="1" 
+		web_icon="gestion_flotas,static/description/icon.jpeg"/>
+
+	<menuitem id="gsie_vehiculo_principal" 
+		name="Vehículos" 
+		sequence="1" 
+		parent="gsie_vehiculos_menu_root"/>
+
+	<menuitem id="gsie_configuracion_conductor" 
+		name="Conductores" 
+		sequence="10" 
+		parent="gsie_vehiculos_menu_root"/>
+
+	<menuitem id="gsie_configuracion_principal" 
+		name="Configuración" 
+		sequence="20" 
+		parent="gsie_vehiculos_menu_root"/>
+
+</odoo>

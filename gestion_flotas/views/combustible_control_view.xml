@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_combustible_control_form_view" model="ir.ui.view">
+	<field name="name">gsie.combustible.control.form.view</field>
+	<field name="model">gsie.combustible.control</field>
+	<field name="arch" type="xml">
+	<form string="Vehiculos">
+		<sheet>
+		<separator style="color:#009C96;font-style:bold;" string="Registro de Combustible"/>
+		<h1 string="Vehículo">
+			<field name="modelo_id" placeholder="Ej. Modelo"/>
+        </h1>
+			<group>
+				<group string="Detalle de Reabastecimiento de Combustible">
+					<field name="litro_galon"/>
+					<field name="precio"/>
+					<field name="precio_total"/>
+				</group>
+				<group string="Detalles Adicionales">
+					<field name="fecha_compra"/>
+					<field name="comprador"/>
+					<field name="proveedores_id"/>
+				</group>				
+			</group>
+			<notebook>
+       		<page string="Control de Combustible">
+          	<field name="combustible_control_ids">
+            	<tree editable="fecha_inicial">
+            		<field name="odometro"/>
+                	<field name="km_recorrido"/>
+					<field name="galones"/>
+					<field name="km_galon"/>
+					<field name="factura"/>
+             	 </tree>
+         	 </field>
+     		</page>
+    		</notebook>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_combustible_control_tree_view" model="ir.ui.view">
+	<field name="name">gsie.combustible.control.tree.view</field>
+	<field name="model">gsie.combustible.control</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="modelo_id"/>
+			<field name="litro_galon"/>
+			<field name="precio"/>
+			<field name="precio_total"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_combustible_control" model="ir.actions.act_window">
+	<field name="name">Combustible</field>
+	<field name="res_model">gsie.combustible.control</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="gsie_combustible_control_menu" 
+		name="Combustible" 
+		sequence="9" 
+		parent="gsie_vehiculo_principal"
+		action="action_gsie_combustible_control"/>
+	
+</odoo>

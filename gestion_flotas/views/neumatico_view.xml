@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_neumatico_form_view" model="ir.ui.view">
+	<field name="name">gsie.neumatico.form.view</field>
+	<field name="model">gsie.neumatico</field>
+	<field name="arch" type="xml">
+	<form string="Neumátcos">
+		<sheet>
+		<separator style="color:#009C96;font-style:bold;" string="Registro de Neumático"/>
+		<field name="imagen_neumatico" widget="image" class="oe_avatar"/>
+		<group>
+				<group string="Datos Generales">
+					<field name="name"/>
+					<field name="costo"/>
+					<field name="fecha"/>
+					<field name="proveedores_id"/>
+					<field name="fecha_ultima"/>
+				</group>
+				<group string="Vehículo">
+					<field name="modelo_id"/>
+					<field name="transmision"/>
+					<field name="maximo_desgaste"/>
+					<field name="alerta_maximo_desgaste"/>
+				</group>
+				<group string="Descripción">
+                    <field name="descripcion" nolabel="1" placeholder="Escribe una descripción del Neumático"/>
+                </group>
+			</group>
+		</sheet>
+		    <div class="oe_chatter">
+            
+            </div>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_neumatico_tree_view" model="ir.ui.view">
+	<field name="name">gsie.neumatico.tree.view</field>
+	<field name="model">gsie.neumatico</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="costo"/>
+			<field name="modelo_id"/>
+			<field name="fecha_ultima"/>
+			<field name="transmision"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_neumatico" model="ir.actions.act_window">
+	<field name="name">Neumático</field>
+	<field name="res_model">gsie.neumatico</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="gsie_neumatico_menu" 
+		name="Neumático" 
+		sequence="8" 
+		parent="gsie_vehiculo_principal"
+		action="action_gsie_neumatico"/>
+	
+</odoo>

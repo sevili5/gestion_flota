@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_servicios_form_view" model="ir.ui.view">
+	<field name="name">gsie.servicios.form.view</field>
+	<field name="model">gsie.servicios</field>
+	<field name="arch" type="xml">
+	<form string="Servicios">
+		<sheet>
+		<separator style="color:#009C96;font-style:bold;" string="Registro de Servicios"/>
+			<group>
+				<group>
+					<field name="modelo_id"/>	
+					<field name="tipo_servicio_id"/>
+					<field name="pieza"/>
+				</group>
+				<group>
+					<field name="costo"/>
+					<field name="conductores_id"/>
+					<field name="proveedores_id"/>
+					<field name="valor_odometro"/>
+				</group>
+				<group string="Descripción">
+                    <field name="descripcion" nolabel="1" placeholder="Escribe una descripción del Servicio brindado."/>
+                </group>							
+			</group>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_servicios_tree_view" model="ir.ui.view">
+	<field name="name">gsie.servicios.tree.view</field>
+	<field name="model">gsie.servicios</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="modelo_id"/>
+			<field name="tipo_servicio_id"/>
+			<field name="pieza"/>
+			<field name="conductores_id"/>
+			<field name="valor_odometro"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_servicios" model="ir.actions.act_window">
+	<field name="name">Servicios</field>
+	<field name="res_model">gsie.servicios</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="gsie_servicios_menu" 
+		name="Servicios" 
+		sequence="5" 
+		parent="gsie_vehiculo_principal"
+		action="action_gsie_servicios"/>
+	
+</odoo>

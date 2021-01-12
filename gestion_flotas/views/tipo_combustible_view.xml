@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="gsie_tipo_combustible_form_view" model="ir.ui.view">
+	<field name="name">gsie.tipo.combustible.form.view</field>
+	<field name="model">gsie.tipo.combustible</field>
+	<field name="arch" type="xml">
+	<form string="Tipo de Combustible">
+		<sheet>
+		<separator style="color:#009C96;font-style:bold;" string="Información General"/>
+			<group>
+				<group>
+					<field name="name"/>
+				</group>				
+			</group>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+<record id="gsie_tipo_combustible_tree_view" model="ir.ui.view">
+	<field name="name">gsie.modelo.tree.view</field>
+	<field name="model">gsie.tipo.combustible</field>
+	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+		</tree>
+	</field>
+</record>
+
+<record id="action_gsie_tipo_combustible" model="ir.actions.act_window">
+	<field name="name">Tipo de Combustible</field>
+	<field name="res_model">gsie.tipo.combustible</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="gsie_tipo_combustible_menu" 
+		name="Tipo de Combustible" 
+		sequence="1" 
+		parent="gsie_configuracion_principal"
+		action="action_gsie_tipo_combustible"/>
+	
+</odoo>
